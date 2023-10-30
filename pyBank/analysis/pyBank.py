@@ -49,13 +49,12 @@ with open(csvpath) as csvfile:
     AC=(float(row[1])-y1)/(TM-1)
 
 #exporting our final results to a CSV file
-output_path= os.path.join("analysis","FA1.csv")
-with open(output_path,'w') as csvfile:
-    csvwriter= csv.writer(csvfile,delimiter=",")
-    csvwriter.writerow(['FINANCIAL ANALYSIS',])
-    csvwriter.writerow(["-----------------------"])
-    csvwriter.writerow([f"Total Months: ",{TM}])
-    csvwriter.writerow([f"Total: ",{TPL}])  
-    csvwriter.writerow([f"Average Change: ",{AC}])
-    csvwriter.writerow([f"Greatest Increase in Profits:",great_inc[0],{great_inc[1]}])
-    csvwriter.writerow([f"Greatest Decrease in Profits:",great_dec[0],{great_dec[1]}])
+output_path= os.path.join("analysis","FA1.txt")
+with open(output_path,'w') as txtfile:
+    txtfile.write("FINANCIAL ANALYSIS\n")
+    txtfile.write('-----------------------\n')
+    txtfile.write(f'Total Months:  {TM}\n')
+    txtfile.write(f'Total:  ${TPL}\n')  
+    txtfile.write(f'Average Change:  ${AC}\n')
+    txtfile.write(f'Greatest Increase in Profits: {great_inc[0]} (${great_inc[1]})\n')
+    txtfile.write(f'Greatest Decrease in Profits: {great_dec[0]} (${great_dec[1]})')

@@ -3,7 +3,7 @@ import os
 import csv
 
 #introducing the path to our file
-csvpath = os.path.join("..","Resources","election_data.csv")
+csvpath = os.path.join("Resources","election_data.csv")
 
 #opening up the file within our path
 with open(csvpath) as csvfile:
@@ -56,16 +56,15 @@ with open(csvpath) as csvfile:
     
 #Extracting results as CSV file
     
-    output_path= os.path.join("..","analysis","FA2.csv")
-with open(output_path,'w') as csvfile:
-    csvwriter= csv.writer(csvfile)
-    csvwriter= csv.writer(csvfile)
-    csvwriter.writerow(["Election Results"])
-    csvwriter.writerow(["-----------------------"])
-    csvwriter.writerow([f"Total Votes: ",{TV}])  
-    csvwriter.writerow(["-------------------------"]),
-    csvwriter.writerow([f"{cand3}: {cand3_perc}% ({cand3_count})"])
-    csvwriter.writerow([f"{cand1}: {cand1_perc}% ({cand1_count})"])
-    csvwriter.writerow([f"{cand2}: {cand2_perc}% ({cand2_count})"])
-    csvwriter.writerow(["-----------------------"])
-    csvwriter.writerow([f"Winner: ",{winner}])
+    output_path= os.path.join("analysis","FA2.txt")
+with open(output_path,'w') as txtfile:
+    txtfile.write('Election Results\n')
+    txtfile.write('-----------------------\n')
+    txtfile.write(f'Total Votes: {TV}\n')  
+    txtfile.write('-------------------------\n')
+    txtfile.write(f'{cand3}: {cand3_perc}% {cand3_count}\n')
+    txtfile.write(f'{cand1}: {cand1_perc}% ({cand1_count})\n')
+    txtfile.write(f'{cand2}: {cand2_perc}% ({cand2_count})\n')
+    txtfile.write('----------------------\n')
+    txtfile.write(f'Winner: {winner}\n')
+    txtfile.write('-----------------------')
